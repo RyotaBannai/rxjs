@@ -16,32 +16,7 @@ export default function Layout () {
                 <ul className="navbar-nav">
                     <li className="nav-item">
                         <NavLink exact to="/" activeClassName="active" >
-                            <div className="nav-link">Featured <span className="sr-only">(current)</span></div>
-                        </NavLink>
-                    </li>
-                    <li className="nav-item">
-                        <NavLink to="/archives" activeClassName="active">
-                            <div className="nav-link" >Archives</div>
-                        </NavLink>
-                    </li>
-                    <li className="nav-item">
-                        <NavLink to="/settings" activeClassName="active">
-                            <div className="nav-link">Settings</div>
-                        </NavLink>
-                    </li>
-                    <li className="nav-item">
-                        <NavLink to="/add" activeClassName="active">
-                            <div className="nav-link">Add Article</div>
-                        </NavLink>
-                    </li>
-                    <li className="nav-item">
-                        <NavLink to="/user" activeClassName="active">
-                            <div className="nav-link">User</div>
-                        </NavLink>
-                    </li>
-                    <li className="nav-item">
-                        <NavLink to="/disabled" activeClassName="active">
-                            <div className="nav-link disabled">Disabled</div>
+                            <div className="nav-link">Main <span className="sr-only">(current)</span></div>
                         </NavLink>
                     </li>
                 </ul>

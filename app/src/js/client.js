@@ -5,14 +5,14 @@ import { Provider } from "react-redux";
 import store from './store'
 
 import {Layout} from "./pages/Layout";
-import {Featured} from "./pages/Featured";
+import {Main} from "./pages/Main";
 const app = document.getElementById('app');
 
 const App = _ => (
     <Provider store={store}>
         <Router>
             <Layout>
-                <Route exact path="/" component={Featured} />
+                <Route exact path="/" component={Main} />
             </Layout>
         </Router>
     </Provider>

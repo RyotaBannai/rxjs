@@ -25,3 +25,15 @@ const foo = new Observable(subscriber => {
 #### Conclusion
 - `func.call()` means `"give me one value synchronously"`
 - `observable.subscribe()` means `"give me any amount of values, either synchronously or asynchronously"`
+###
+Observables are created using new Observable or a creation operator, are subscribed to with an Observer, execute to deliver `next / error / complete notifications` to `the Observer`, and their execution may be disposed. These four aspects are all encoded in an Observable instance, but some of these aspects are related to other types, like Observer and Subscription.
+`Core Observable concerns`:
+- Creating Observables
+- Subscribing to Observables
+- Executing the Observable
+- Disposing Observables
+> Observables can be created with new Observable. Most commonly, observables are created using creation functions, like of, from, interval, etc.
+
+> Subscribing to an Observable is like calling a function, providing callbacks where the data will be delivered to.
+- This is drastically different to event handler APIs like `addEventListener / removeEventListener`. With observable.subscribe, the given Observer is not registered as a listener in the Observable. `The Observable does not even maintain a list of attached Observers`.
+- `A subscribe call is simply a way to start an "Observable execution" and deliver values or events to an Observer of that execution.`

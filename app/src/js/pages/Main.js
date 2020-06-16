@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from "react";
-import Article from "../components/Child";
+import MyOb1 from "../components/MyOb1";
 
 export const Main = props => {
     const [state, setState] = useState([]);
@@ -9,5 +9,6 @@ export const Main = props => {
 
     return (<div>
         <h1>Rxjs</h1>
+        <MyOb1 />
     </div>)
 };

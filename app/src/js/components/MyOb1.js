@@ -1,5 +1,4 @@
 import React, {useState, useEffect} from "react";
-import '../../sass/Child.scss';
 import { Observable } from 'rxjs';
 
 export default function MyOb1 (props){

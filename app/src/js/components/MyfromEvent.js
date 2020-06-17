@@ -1,5 +1,4 @@
 import React, {useState, useEffect} from "react";
-import '../../sass/Child.scss';
 
 import { fromEvent } from 'rxjs';
 import { find } from 'rxjs/operators';

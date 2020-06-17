@@ -1,9 +1,8 @@
 import React, {useState, useEffect} from "react";
-import '../../sass/Child.scss';
 import { empty, interval, of, concat, range } from 'rxjs';
 import { mergeMap, take } from 'rxjs/operators';
 
-export default function Op1 (props){
+export default function MyOp1 (props){
     const [state, setState] = useState(false);
     useEffect(()=> {
         //const interval$ = interval(1000);

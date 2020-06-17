@@ -1,7 +1,6 @@
 import React from "react";
-import Nav from '../components/Nav';
+import Nav from './Nav';
 import '../../sass/Layout.scss'
-import { Link, NavLink, WithRouter } from "react-router-dom";
 
 export const Layout = props => {
     return (<div>

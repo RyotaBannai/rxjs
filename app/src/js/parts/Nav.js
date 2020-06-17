@@ -19,6 +19,11 @@ export default function Layout () {
                             <div className="nav-link">Main <span className="sr-only">(current)</span></div>
                         </NavLink>
                     </li>
+                    <li className="nav-item">
+                        <NavLink exact to="/info" activeClassName="active" >
+                            <div className="nav-link">Info <span className="sr-only">(current)</span></div>
+                        </NavLink>
+                    </li>
                 </ul>
             </div>
         </nav>

@@ -1,5 +1,4 @@
 import React, {useState, useEffect} from "react";
-import '../../sass/Child.scss';
 
 import { fromEvent, interval } from 'rxjs';
 import { window, mergeAll, map, take } from 'rxjs/operators';

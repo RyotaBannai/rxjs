@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from "react";
-import MyAsyncSubject from '../components/subject/MyAsyncSubject'
+import MyMulticast from '../components/multicast/MyMulticast'
 
 export const Main = props => {
     const [state, setState] = useState([]);
@@ -8,6 +8,6 @@ export const Main = props => {
     }, []);
 
     return (<div>
-        <MyAsyncSubject/>
+        <MyMulticast/>
     </div>)
 };

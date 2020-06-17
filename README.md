@@ -85,11 +85,14 @@ observable.subscribe(
 - `Subscriptions` can also be put together, so that a call to an unsubscribe() of one Subscription may unsubscribe multiple Subscriptions. You can do this by "`adding`" one subscription into another.
 - `Every Subject is an Observable`. Given a Subject, you can subscribe to it, providing an Observer, which will start receiving values normally. From the perspective of the Observer, it cannot tell whether the Observable execution is coming from `a plain unicast Observable` or `a Subject`.
 - Subscribe の execution は先に subject を作成してからでもできるし、後から subject を作成することを想定して `const subject = new Subject<number>();` でsubjectを用意して、それに対して subject.subscribe({...}) で subscribe して `observable.subscribe(subject);` な感じで発火することもできる。
-- `Multicasted Observables`: A "`multicasted Observable`" passes notifications through a Subject which `may have many subscribers`, whereas a plain "`unicast Observable`" only sends notifications to `a single Observer`.
 - `Subject variants`: There are officially three variants of RxJS subjects. They are:
     - `Behavior subject`
     - `Replay subject`
     - `Async subject`
 - `Behavior subject`: temporarily stores the current data value of any observer declared before it.
 - `Replay subject`: buffers more than the current value.
-- `Async subject`: only execute after a complete method is called. this particular variation `emits the very current value` only when it sees the complete method call.
+- `Async subject`: only execute after a complete method is called. this particular variation `emits the very current value` only when it sees the complete method call. (This behavior is similar the `last()` operator, )
+- `Multicasted Observables`: A "`multicasted Observable`" passes notifications through a Subject which `may have many subscribers`, whereas a plain "`unicast Observable`" only sends notifications to `a single Observer`. Send a value to all observers at each time.
+- The `connect()` method is important `to determine exactly when the shared Observable execution will start`. Because `connect()` does source.subscribe(subject) under the hood, connect() returns a `Subscription`, which you can `unsubscribe` from in order to cancel the shared Observable execution.
+> `refCount` makes the multicasted Observable `automatically start executing when the first subscriber arrives`, and `stop executing when the last subscriber leaves`. 
+- `source.pipe(multicast(subject), refCount());`のように第二引数に `refCount()` を渡すことで observer が到来した時点で自動的に `connect()` を初めて、全ての observer が unsubscribe した時点で自動的に multicast 自体を `unsubscribe()` する。

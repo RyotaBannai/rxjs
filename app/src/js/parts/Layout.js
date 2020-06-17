@@ -8,7 +8,7 @@ export const Layout = props => {
             <div className="container">
                 <div className="row">
                     <div className="col-lg-12">
-                        <h1>Playground</h1>
+                        <h1>Experiment</h1>
                         {props.children}
                     </div>
                 </div>

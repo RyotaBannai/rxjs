@@ -1,12 +1,13 @@
 import React, {useState, useEffect} from "react";
+import MyAnimationFrame from '../components/animation/AnimationFrame'
 
-export const Into = props => {
+export const Playground = props => {
     const [state, setState] = useState([]);
     useEffect(()=> {
 
     }, []);
 
     return (<div>
-        <h1>Into</h1>
+        <MyAnimationFrame />
     </div>)
 };

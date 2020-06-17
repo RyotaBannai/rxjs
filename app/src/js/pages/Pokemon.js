@@ -54,7 +54,7 @@ const useObservable = (subscriber, setter, state) => {
     }, [subscriber, setter]);
 };
 
-export const Main = props => {
+export const Pokemon = props => {
     const [state, setState] = useState('');
     const [result, setResult] = useState(default_pokemon);
     const handleEvent = e => {

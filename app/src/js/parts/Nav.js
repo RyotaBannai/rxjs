@@ -20,8 +20,8 @@ export default function Layout () {
                         </NavLink>
                     </li>
                     <li className="nav-item">
-                        <NavLink exact to="/info" activeClassName="active" >
-                            <div className="nav-link">Info <span className="sr-only">(current)</span></div>
+                        <NavLink exact to="/pg" activeClassName="active" >
+                            <div className="nav-link">Playground <span className="sr-only">(current)</span></div>
                         </NavLink>
                     </li>
                 </ul>

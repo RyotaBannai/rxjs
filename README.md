@@ -96,3 +96,10 @@ observable.subscribe(
 - The `connect()` method is important `to determine exactly when the shared Observable execution will start`. Because `connect()` does source.subscribe(subject) under the hood, connect() returns a `Subscription`, which you can `unsubscribe` from in order to cancel the shared Observable execution.
 > `refCount` makes the multicasted Observable `automatically start executing when the first subscriber arrives`, and `stop executing when the last subscriber leaves`. 
 - `source.pipe(multicast(subject), refCount());`のように第二引数に `refCount()` を渡すことで observer が到来した時点で自動的に `connect()` を初めて、全ての observer が unsubscribe した時点で自動的に multicast 自体を `unsubscribe()` する。
+### Scheduler
+- controls when `a subscription starts` and when `notifications are delivered`. It consists of three components:
+    - A Scheduler is a `data structure`. It knows how to store and queue tasks based on priority or other criteria.
+    - A Scheduler is an `execution context`. It denotes where and when the task is executed (e.g. immediately, or in another callback mechanism such as setTimeout or process.nextTick, or the animation frame).
+    - A Scheduler `has a (virtual) clock`. It provides a notion of "time" by a getter method `now()` on the scheduler. Tasks being scheduled on a particular scheduler will adhere only to the time denoted by that clock.
+- `subscribeOn`(asyncScheduler): observableの実行順序を操作する。
+- `observeOn`: observer にデータを渡す条件をコントロールする。

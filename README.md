@@ -37,3 +37,47 @@ Observables are created using new Observable or a creation operator, are subscri
 > Subscribing to an Observable is like calling a function, providing callbacks where the data will be delivered to.
 - This is drastically different to event handler APIs like `addEventListener / removeEventListener`. With observable.subscribe, the given Observer is not registered as a listener in the Observable. `The Observable does not even maintain a list of attached Observers`.
 - `A subscribe call is simply a way to start an "Observable execution" and deliver values or events to an Observer of that execution.`
+- It is a good idea to wrap any code in subscribe with `try/catch block` that will deliver an `Error` notification if it catches an exception:
+```javascript
+import { Observable } from 'rxjs';
+const observable = new Observable(function subscribe(subscriber) {
+  try {
+    subscriber.next(1);
+    subscriber.next(2);
+    subscriber.next(3);
+    subscriber.complete();
+  } catch (err) {
+    subscriber.error(err); // delivers an error if it caught one
+  }
+});
+```
+- An `Observer` is `a consumer` of values delivered by an `Observable`. Observers are simply a set of callbacks, `one for each type of notification delivered by the Observable`: next, error, and complete.
+> Observers are just objects with three callbacks, one for each type of notification that an Observable may deliver.
+- how to right observers:
+```javascript
+const observer = {
+  next: x => console.log('Observer got a next value: ' + x),
+  error: err => console.error('Observer got an error: ' + err),
+}
+```
+- Internally in observable.subscribe, it will create an Observer object using `the first callback argument as the next handler`. All three types of callbacks may be provided as arguments:
+```javascript
+observable.subscribe(
+  x => console.log('Observer got a next value: ' + x),
+  err => console.error('Observer got an error: ' + err),
+  () => console.log('Observer got a complete notification')
+);
+```
+> `A Pipeable Operator` is a function that takes an Observable as its input and returns another Observable. It is a pure operation: the previous Observable stays unmodified.
+- These include, `filter(...)`, and `mergeMap(...)`
+- A `Pipeable Operator` is essentially a pure function which `takes one Observable as input` and `generates another Observable as output`. `Subscribing to the output Observable will also subscribe to the input Observable`.
+### Categories of operators
+- creation
+- transformation
+- filtering 
+- joining
+- multicasting 
+- error handling 
+- utility
+- etc.
+- [full details](https://rxjs-dev.firebaseapp.com/api)

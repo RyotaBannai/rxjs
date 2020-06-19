@@ -1,8 +1,8 @@
 import React from "react";
-import MyReplaySubject from '../components/multicast/sharedReplay/ReplaySubject'
+import Mapping from '../components/archive/experiment/Mapping'
 
 export const Playground = props => {
     return (<div>
-        <MyReplaySubject />
+        <Mapping />
     </div>)
 };

@@ -1,5 +1,7 @@
 import React, {useState, useEffect} from "react";
 
+// Perform task when window.requestAnimationFrame would fire
+
 import { fromEvent, animationFrameScheduler } from 'rxjs';
 import { find,tap } from 'rxjs/operators';
 
@@ -8,7 +10,7 @@ const clickEvent = fromEvent(document, 'click').pipe(
     tap(console.log),
 );
 
-const biggerElement = (limit) => {
+const biggerElement = limit => {
     let div = document.querySelector('#_target-div');
     animationFrameScheduler.schedule(function(height = 20) {
         let element_height = div.computedStyleMap().get('height').value;  // get as number instead of XXpx
@@ -26,11 +28,12 @@ export default function MyAnimationFrame (props){
             _ => console.log('completed'),
         );
     }, );
-
     return(
         <div className="col-md-4">
-            <div id='_target-div' style={{height: "20px", backgroundColor: 'rebeccapurple', color: 'white'}}>
-                this is div height 20px</div>
+            <div
+                id='_target-div'
+                style={{ height: "20px", backgroundColor: 'rebeccapurple', color: 'white' }}
+            >this is div height 20px</div>
         </div>
     )
 }

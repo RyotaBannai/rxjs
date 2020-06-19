@@ -68,18 +68,6 @@ observable.subscribe(
   () => console.log('Observer got a complete notification')
 );
 ```
-> `A Pipeable Operator` is a function that takes an Observable as its input and returns another Observable. It is a pure operation: the previous Observable stays unmodified.
-- These include, `filter(...)`, and `mergeMap(...)`
-- A `Pipeable Operator` is essentially a pure function which `takes one Observable as input` and `generates another Observable as output`. `Subscribing to the output Observable will also subscribe to the input Observable`.
-### Categories of operators
-- creation
-- transformation
-- filtering 
-- joining
-- multicasting 
-- error handling 
-- utility
-- etc.
 - [full details](https://rxjs-dev.firebaseapp.com/api)
 ### Subject, Subscription
 - `Subscriptions` can also be put together, so that a call to an unsubscribe() of one Subscription may unsubscribe multiple Subscriptions. You can do this by "`adding`" one subscription into another.
@@ -105,3 +93,20 @@ observable.subscribe(
 - `observeOn`: observer にデータを渡す条件をコントロールする。
 ### React's hooks and rxjs
 - [Go find good tuto](https://www.youtube.com/watch?v=Urv82SGIu_0)
+
+## Opeartors
+> `A Pipeable Operator` is a function that takes an Observable as its input and returns another Observable. It is a pure operation: the previous Observable stays unmodified.
+- These include, `filter(...)`, and `mergeMap(...)`
+- A `Pipeable Operator` is essentially a pure function which `takes one Observable as input` and `generates another Observable as output`. `Subscribing to the output Observable will also subscribe to the input Observable`.
+### Categories of operators
+- creation
+- transformation
+- filtering 
+- joining
+- multicasting 
+- error handling 
+- utility
+- etc.
+### details
+- `race()`: `takes multiple observables`. and subscribes to the observable that was `the first to start emitting`.
+- `mapTo()`: changes the value to specific data.

@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from "react";
-import MyAnimationFrame from '../components/animation/AnimationFrame'
+import MyRepeatWhen from '../components/archive/MyRepeatWhen'
 
 export const Playground = props => {
     const [state, setState] = useState([]);
@@ -8,6 +8,6 @@ export const Playground = props => {
     }, []);
 
     return (<div>
-        <MyAnimationFrame />
+        <MyRepeatWhen />
     </div>)
 };

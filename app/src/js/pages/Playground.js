@@ -1,8 +1,8 @@
 import React from "react";
-import Mapping from '../components/archive/experiment/Mapping'
+import GroupingEx001 from '../components/archive/experiment/GroupingEx001'
 
 export const Playground = props => {
     return (<div>
-        <Mapping />
+        <GroupingEx001 />
     </div>)
 };

@@ -3,7 +3,7 @@ import React, {useState, useEffect} from "react";
 import { of, from } from 'rxjs';
 import { tap, concatMap, interval, map } from 'rxjs/operators';
 
-export default function Mapping (props){
+export default function MappingEx000 (props){
     useEffect(()=> {
         /*
         * Objective: from subject [a,b] => a0, a1, b0, b1 w/o new Subject

@@ -27,8 +27,14 @@ export default function MyRepeatWhen (props){
         ).subscribe(data => {
             setState( prevState => ({
                 ...prevState,
-                message_list: [...prevState.message_list, data] // or use this.state.message_list.concat([data])
+                message_list: [...prevState.message_list, data]
             }));
+            /*
+            * // or use this:
+            * setState(state.message_list.concat([data]))
+            *
+            * */
+
 
             // this is how you can go deep down the rabbit hole;)
             // console.log(state)

@@ -1,13 +1,8 @@
-import React, {useState, useEffect} from "react";
-import MyRepeatWhen from '../components/archive/MyRepeatWhen'
+import React from "react";
+import MyReplaySubject from '../components/multicast/sharedReplay/ReplaySubject'
 
 export const Playground = props => {
-    const [state, setState] = useState([]);
-    useEffect(()=> {
-
-    }, []);
-
     return (<div>
-        <MyRepeatWhen />
+        <MyReplaySubject />
     </div>)
 };
